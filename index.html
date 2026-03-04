@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马嵩林 | AI 产品专家 & 创意策划</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #f1f5f9;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        nav a:hover {
+            color: #6366f1;
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 5% 4rem;
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(236, 72, 153, 0.2) 0%, transparent 50%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-role {
+            font-size: 1.1rem;
+            color: #6366f1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            padding: 0.6rem 1.2rem;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            white-space: nowrap;
+        }
+
+        .hero-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            color: #94a3b8;
+        }
+
+        .hero-contact a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .hero-contact a:hover {
+            color: #6366f1;
+        }
+
+        section {
+            padding: 5rem 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: #f1f5f9;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            margin-bottom: 3rem;
+        }
+
+        .about-text {
+            color: #94a3b8;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        .skills-title {
+            color: #6366f1;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .skills-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-item {
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #f1f5f9;
+            white-space: nowrap;
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.6);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #6366f1;
+        }
+
+        .card-subtitle {
+            color: #f1f5f9;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 0.2rem;
+        }
+
+        .card-date {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .card-detail {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-top: 0.75rem;
+            padding-left: 1rem;
+            border-left: 3px solid #6366f1;
+            line-height: 1.8;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #6366f1, #ec4899);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.3rem;
+            width: 12px;
+            height: 12px;
+            background: #6366f1;
+            border-radius: 50%;
+            border: 3px solid #0f172a;
+        }
+
+        .achievements {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .achievements li {
+            padding: 0.4rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .achievements li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #ec4899;
+        }
+
+        .highlight {
+            color: #06b6d4;
+            font-weight: 600;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 5%;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #94a3b8;
+            background: rgba(15, 23, 42, 0.5);
+        }
+
+        .ai-declaration {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .ai-declaration i {
+            color: #6366f1;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                gap: 1rem;
+            }
+            .hero-tags {
+                gap: 0.5rem;
+            }
+            .tag {
+                font-size: 0.85rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#about">关于</a></li>
+            <li><a href="#edu">教育</a></li>
+            <li><a href="#work">经历</a></li>
+            <li><a href="#practice">行业实践</a></li>
+            <li><a href="#contact">联系</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div>
+            <h1>马嵩林</h1>
+            <p class="hero-subtitle">AI 产品运营与策划 | AGENT 架构专家</p>
+            <p class="hero-role">影视创作 × 人工智能 × 产品运营</p>
+            <div class="hero-tags">
+                <span class="tag">多模态 AI 产品运营</span>
+                <span class="tag">影视策划</span>
+                <span class="tag">Agent 架构</span>
+                <span class="tag">团队管理</span>
+                <span class="tag">数据分析与评测</span>
+            </div>
+            <div class="hero-contact">
+                <a href="mailto:edward9837@foxmail.com">edward9837@foxmail.com</a>
+                <span>北京朝阳</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>关于我</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>我拥有影视创作与人工智能技术的跨界复合背景。熟悉影视创作规律，同时具备深厚的 AI 技术落地经验。擅长在产品、算法与工程团队间建立精准沟通，将艺术审美转化为模型可理解的指令集。</p>
+                <p>在技术侧，我熟练使用 Qwen、Gemini、Grok 等主流模型，精通高阶 Prompt Engineering 及 Agent 流程搭建，并具备大模型测评（GSB）与数据分析经验。</p>
+                <p>在生活与综合素养上，我拥有系统性的阅读习惯，对历史、金融、军事及文献学有深入研究。作为 3.0 级别的网球玩家与滑雪爱好者，我享受高强度挑战带来的韧性与专注。</p>
+            </div>
+            <div>
+                <div class="skills-title">AI & 技术技能</div>
+                <div class="skills-cloud">
+                    <span class="skill-item">Qwen / Gemini / Grok</span>
+                    <span class="skill-item">Prompt Engineering</span>
+                    <span class="skill-item">Agent 架构搭建</span>
+                    <span class="skill-item">大模型评测 (GSB)</span>
+                    <span class="skill-item">数据分析</span>
+                    <span class="skill-item">Final Cut Pro</span>
+                    <span class="skill-item">Midjourney</span>
+                    <span class="skill-item">Seedance</span>
+                </div>
+                
+                <div class="skills-title">业务与语言能力</div>
+                <div class="skills-cloud">
+                    <span class="skill-item">剧本与IP创作</span>
+                    <span class="skill-item">产品运营与规划</span>
+                    <span class="skill-item">团队管理与领导</span>
+                    <span class="skill-item">雅思阅读 7.0</span>
+                    <span class="skill-item">日语日常交流</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="edu">
+        <h2>教育背景</h2>
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">北京大学</div>
+                    <div class="card-subtitle">艺术学院硕士 - 商业电影制作专业</div>
+                </div>
+                <div class="card-date">2022 - 2025</div>
+            </div>
+            <div class="card-detail">
+                以总成绩第二名考入。辅修历史学系。在陈宇教授工作室（中子星影业）实习，参与《坚如磐石》、《满江红》等院线项目创意制作。期末以AI短片《芍园老鼠毁灭世界》荣获导演创意课最高分。
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">北京电影学院</div>
+                    <div class="card-subtitle">文学系本科 - 电影剧本创作专业</div>
+                </div>
+                <div class="card-date">2016 - 2020</div>
+            </div>
+            <div class="card-detail">
+                以年级第一成绩毕业，获评文学系优秀毕业生。
+            </div>
+        </div>
+    </section>
+
+    <section id="work">
+        <h2>工作与实习经历</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">阿里大文娱 · 产品技术创新中心</div>
+                        <div class="card-subtitle">AI 产品运营 & 策划</div>
+                    </div>
+                    <div class="card-date">2025.01 - 至今</div>
+                </div>
+                <ul class="achievements">
+                    <li><span class="highlight">大模型创作 Agent 全链路建设：</span>主导开发多 Agent 协作系统，实现自动闭环。编制3万字《AIGC剧作逻辑白皮书》，将专业理论转化为高阶指令集。</li>
+                    <li><span class="highlight">写作垂类自研大模型研发：</span>构建针对剧本创作的PE体系，运用 CoT 及多轮对话模板解决长文本逻辑问题，模型准确率高于 Gemini 25%+。</li>
+                    <li><span class="highlight">核心项目 Benchmark 体系：</span>建立 GSB 横向评测机制，搭建人工与自动评测系统，输出 Badcase 报告指导算法迭代。</li>
+                    <li><span class="highlight">"蟠桃计划" 动漫赋能：</span>带领15人跨职能团队，通过AI工作流实现策划案规模化生产，产出20+优质剧本。</li>
+                    <li><span class="highlight">ToC 产品知识库开发：</span>主导海量影视语料自动化处理，数据处理效率提升200%，该方案已获阿里技术创新奖励并申请国家专利。</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">阿里大文娱 · 产品技术创新中心</div>
+                        <div class="card-subtitle">NLP 算法 标注组外包 (组长)</div>
+                    </div>
+                    <div class="card-date">2024.09 - 2025.01</div>
+                </div>
+                <ul class="achievements">
+                    <li>负责自研模型 SFT 阶段数据标注、质检规则撰写与全量 SFT 数据的质量控制。带领12人团队，完成模型40%核心优质数据储备，获该组唯一转正名额。</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">贰零壹陆影业</div>
+                        <div class="card-subtitle">策划 & 责编项目合作</div>
+                    </div>
+                    <div class="card-date">2022.01 - 2024.09</div>
+                </div>
+                <ul class="achievements">
+                    <li>负责公司重要IP《装台》、《抓手》的策划案和前期开发。主笔长片电影《经行记》剧本，已获总局重大历史题材备案立项。</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">爱奇艺</div>
+                        <div class="card-subtitle">编剧 & 策划项目承制</div>
+                    </div>
+                    <div class="card-date">2022</div>
+                </div>
+                <ul class="achievements">
+                    <li>与爱奇艺合作开发原创 IP《幽都少年行》，负责剧本开发、构建完整世界观及同名小说创作。</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">北京电视台 · 市场部</div>
+                        <div class="card-subtitle">影视策划与执行实习</div>
+                    </div>
+                    <div class="card-date">2021.03 - 2021.10</div>
+                </div>
+                <ul class="achievements">
+                    <li>参与策划与执行第十二届北京国际电影节，负责创投 WIP 项目和导演训练营的内容审核与评议。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="practice">
+        <h2>行业实践</h2>
+        <div class="projects-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">国家安全部宣传视频</div>
+                    <div class="card-date">2024</div>
+                </div>
+                <div class="card-detail" style="border-left:none; padding-left:0; margin-top:0.5rem;">
+                    受国家安全部委托，作为编剧、导演拍摄 "12339" 主题系列宣传视频。
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">《热》- 毕业联合作业</div>
+                    <div class="card-date">2020</div>
+                </div>
+                <div class="card-detail" style="border-left:none; padding-left:0; margin-top:0.5rem;">
+                    担任北京电影学院 2020届毕业联合作业《热》的执行导演及主创。
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">《在路上》- 重点纪录片</div>
+                    <div class="card-date">2018</div>
+                </div>
+                <div class="card-detail" style="border-left:none; padding-left:0; margin-top:0.5rem;">
+                    在青年电影制片厂重点纪录片项目中担任纪录片摄影师与策划。
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">第14届金字奖</div>
+                    <div class="card-date">2017</div>
+                </div>
+                <div class="card-detail" style="border-left:none; padding-left:0; margin-top:0.5rem;">
+                    短片剧本《献捷》获得北京电影学院文学系第14届金字奖最佳短片剧本提名。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>© 2026 马嵩林 | AI 产品专家 & 创意策划</p>
+        <p style="margin-top: 0.5rem;">edward9837@foxmail.com</p>
+        <p class="ai-declaration"><i class="fas fa-magic"></i> 本网页由 Gemini & open claw 辅助生成</p>
+    </footer>
+</body>
+</html>
